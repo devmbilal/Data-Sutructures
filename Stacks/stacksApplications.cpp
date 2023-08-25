@@ -160,3 +160,21 @@ int postevaluation(string input)
 	}
 	return s.top();
 }
+
+string rep_braces(string str,char r,char rw)
+{
+	for (int i = 0; str[i]!='\0'; i++)
+	{
+		if (str[i] == r)
+		{
+			str[i] = rw;
+			continue;
+		}
+		if (str[i] == rw)
+		{
+			str[i] = r;
+			continue;
+		}
+	}
+	return str;
+}
