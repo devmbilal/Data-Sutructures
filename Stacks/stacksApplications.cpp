@@ -70,3 +70,20 @@ bool checkinput(char c)
 		return true;
 	return false;
 }
+int prec(char c)
+{
+	switch (c)
+	{
+	case'+':
+	case'-':
+		return 1;
+	case'*':
+	case'/':
+	case'%':
+		return 2;
+	case'^':
+		return 3;
+	default:
+		return 0;
+	}
+}
