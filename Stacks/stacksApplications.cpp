@@ -97,3 +97,24 @@ string preconvertor(string input)
 
 	return input;
 }
+
+int evaluate(char c, int a, int b)
+{
+	switch (c)
+	{
+	case '+':
+		return  a + b;
+	case '-':
+		return  a - b;
+	case '*':
+		return  a * b;
+	case '/':
+		return  a / b;
+	case '^':
+		return  a ^ b;
+	case '%':
+		return  a % b;
+	default:
+		return 0;
+	}
+}
