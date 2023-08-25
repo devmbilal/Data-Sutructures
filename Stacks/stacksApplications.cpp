@@ -1,3 +1,31 @@
+// Stack Applications.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+#include <iostream>
+using namespace std;
+#include"stack.h"
+string postconvertor(string);
+string preconvertor(string);
+int postevaluation(string);
+string rep_braces(string,char,char);
+string PrefixToInfix(string);
+int evaluate(char, int, int);
+bool isOperand(char);
+int prec(char);
+bool checkinput(char);
+
+int main()
+{
+	string str;
+	cout << "Enter the String : ";
+	//  1-2+3*(4-5+6)/7*8
+	//  12-34*+
+	cin >> str;
+	cout << "After Postfix Conversion : " << postconvertor(str) << endl;
+	cout << "After input Conversion : " << preconvertor(str) << endl;
+	cout << "After Postfix Evaluation : " << postevaluation(postconvertor(str)) << endl;
+	cout << "After Prefix to Infix Conversion : " << PrefixToInfix(preconvertor(str)) << endl;
+}
+
 bool checkinput(char c)
 {
 	if (c == '+' || c == '-' || c == '*' || c == '/' 
