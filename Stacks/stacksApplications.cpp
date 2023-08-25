@@ -87,3 +87,13 @@ int prec(char c)
 		return 0;
 	}
 }
+
+string preconvertor(string input)
+{
+	reverse(input.begin(), input.end());
+	input= rep_braces(input, ')', '(');
+	input = postconvertor(input);
+	reverse(input.begin(), input.end());
+
+	return input;
+}
