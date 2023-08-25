@@ -62,3 +62,11 @@ string postconvertor(string input)
 	}
 	return output;
 }	
+
+bool checkinput(char c)
+{
+	if (c == '+' || c == '-' || c == '*' || c == '/' 
+	   || c == '%' || c == '^'||c=='('||c==')')
+		return true;
+	return false;
+}
