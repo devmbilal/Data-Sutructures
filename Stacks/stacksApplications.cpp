@@ -178,3 +178,33 @@ string rep_braces(string str,char r,char rw)
 	}
 	return str;
 }
+
+
+
+string PrefixToInfix(string input)
+{
+	SStack s;
+	for (int i = input.length() - 1; i >= 0; i--) {
+		if (isOperand(input[i])) {
+			string op(1, input[i]);
+			s.push(op);
+		}
+		else {
+			string op1 = s.top();
+			s.pop();
+			string op2 = s.top();
+			s.pop();
+			s.push("(" + op1 + input[i] + op2 + ")");
+		}
+	}
+	return s.top();
+}
+bool isOperand(char c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')|| (c >= '1' && c <= '9')) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
