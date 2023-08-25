@@ -1,0 +1,132 @@
+// Two Stacks.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include"twostacks.h"
+using namespace std;
+
+int main()
+{
+    int size;
+    cout << "Enter the Size in multiple of 2 : ";
+    cin >> size;
+    while (size%2!=0)
+    {
+        cout << "Enter the Size in multiple of 2 : ";
+        cin >> size;
+    }
+    TwoStacks s(size);
+    // Checking  First Stack
+    try
+    {
+        s.push1(2);
+        s.push1(2);
+        s.push1(2);
+        s.push1(2);
+        s.push1(2);
+        s.pop1();
+        s.pop1();
+        s.pop1();
+        s.pop1();
+        s.pop1();
+        
+    }
+    catch (const char*msg)
+    {
+        cout << msg << endl;
+    }
+    // Checking  Second Stack
+    try
+    {
+        s.push2(10);
+        s.push2(10);
+        s.push2(10);
+        s.push2(10);
+        s.push2(10);
+        s.pop2();
+        s.pop2();
+        s.pop2();
+        s.pop2();
+      
+        s.pop2();
+        
+    }
+    catch (const char* msg)
+    {
+        cout << msg << endl;
+    }
+}
+
+
+#pragma once
+class TwoStacks
+{
+	int *arr;
+	int size;
+	int top1_index;
+	int top2_index;
+public:
+	TwoStacks(int n = 50);
+	~TwoStacks();
+	void pop1();
+	void pop2();
+	void push1(const int & val);
+	void push2(const int & val);
+	int top1() const;
+	int top2() const;
+};
+
+// Implementation of Class TwoStacks
+
+TwoStacks::TwoStacks(int n)
+{
+	arr = new int[n];
+	size = n;
+	top1_index = -1;
+	top2_index = (size / 2)-1;
+}
+void TwoStacks::pop1()
+{
+	if (top1_index == -1)
+		throw("Stack 1 Underflow");
+	top1_index--;
+}
+void TwoStacks::push1(const int& val)
+{
+	
+	if (top1_index == (size / 2)-1)
+		throw ("Stack 1 Overflow");
+	    top1_index++;
+		arr[top1_index] = val;
+	    
+}
+void TwoStacks::pop2()
+{
+	if (top2_index == (size/2)-1)
+		throw("Stack 2 Underflow");
+	top2_index--;
+}
+void TwoStacks::push2(const int& val)
+{
+	
+	if (top2_index == size-1)
+		throw ("Stack 2 Overflow");
+	top2_index++;
+	arr[top2_index] = val;
+}
+TwoStacks::~TwoStacks()
+{
+	delete[] arr;
+}
+int TwoStacks::top1() const
+{
+	if (top1_index == -1)
+		throw("Stack 1 is Empty");
+	return arr[top1_index];
+}
+int TwoStacks::top2() const
+{
+	if (top2_index == (size / 2) - 1)
+		throw("Stack 2 is Empty");
+	return arr[top2_index];
+}
