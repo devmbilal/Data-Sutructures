@@ -1,3 +1,12 @@
+bool checkinput(char c)
+{
+	if (c == '+' || c == '-' || c == '*' || c == '/' 
+	   || c == '%' || c == '^'||c=='('||c==')')
+		return true;
+	return false;
+}
+
+
 string postconvertor(string input)
 {
 	Stack s;
