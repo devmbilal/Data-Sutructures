@@ -118,3 +118,36 @@ int evaluate(char c, int a, int b)
 		return 0;
 	}
 }
+
+
+int postevaluation(string input)
+{
+	Stack s;
+	int i = 0;
+	try
+	{
+		while (input[i])
+		{
+			if (checkinput(input[i]))
+			{
+				int second = s.top();
+				s.pop();
+				int first = s.top();
+				s.pop();
+				int r = evaluate(input[i], first, second);
+				s.push(r);
+			}
+			else
+			{
+				int p = int(input[i]) - 48;
+				s.push(p);
+			}
+			i++;
+		}
+	}
+	catch (const char* msg)
+	{
+		cout << msg << endl;
+	}
+	return s.top();
+}
