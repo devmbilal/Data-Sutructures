@@ -28,3 +28,7 @@ void CircularQueue::pop()
 		throw("CircularQueue Underflow");
 	f_ind = (f_ind + 1) % size;
 }
+bool CircularQueue::empty() const
+{
+	return f_ind == r_ind;
+}
