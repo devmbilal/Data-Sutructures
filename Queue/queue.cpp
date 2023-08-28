@@ -21,3 +21,10 @@ void CircularQueue::push(int val)
 	r_ind = (r_ind + 1) % size;
 	data[r_ind] = val;
 }
+
+void CircularQueue::pop()
+{
+	if (empty())
+		throw("CircularQueue Underflow");
+	f_ind = (f_ind + 1) % size;
+}
