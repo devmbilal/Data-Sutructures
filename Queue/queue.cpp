@@ -45,3 +45,17 @@ void CircularQueue::make_emty()
 	// r_ind = f_ind;
 	// r_ind = f_ind = size- 1;
 }
+
+
+int CircularQueue::front() const
+{
+	if (empty())
+		throw("CircularQueue Underflow");
+	return data[(f_ind + 1) % size];
+}
+int CircularQueue::rare() const
+{
+	if (empty())
+		throw("CircularQueue Underflow");
+	return data[r_ind];
+}
