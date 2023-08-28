@@ -59,3 +59,24 @@ int CircularQueue::rare() const
 		throw("CircularQueue Underflow");
 	return data[r_ind];
 }
+
+const CircularQueue& CircularQueue::operator=(const CircularQueue& q)
+{
+	if (this != &q)
+	{
+		size = q.size;
+		r_ind = q.r_ind;
+		f_ind = q.f_ind;
+		n_elements = q.n_elements;
+		if (data!=NULL)
+			delete [] data;
+		data = new int[size];
+		int f = f_ind + 1;
+		while (f_ind!=r_ind+1)
+		{
+			data[f] = q.data[f];
+			f = (f + 1) % size;
+		}
+	}
+	return*this;
+}
