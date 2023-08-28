@@ -32,3 +32,8 @@ bool CircularQueue::empty() const
 {
 	return f_ind == r_ind;
 }
+
+bool CircularQueue::full() const
+{
+	return (r_ind+1)%size == f_ind;
+}
