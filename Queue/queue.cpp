@@ -14,3 +14,10 @@ CircularQueue::CircularQueue(const CircularQueue& q)
 	data = NULL;
 	operator=(q);
 }
+void CircularQueue::push(int val)
+{
+	if (full())
+		throw("CircularQueue Overflow");
+	r_ind = (r_ind + 1) % size;
+	data[r_ind] = val;
+}
