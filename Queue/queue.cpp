@@ -37,3 +37,11 @@ bool CircularQueue::full() const
 {
 	return (r_ind+1)%size == f_ind;
 }
+
+
+void CircularQueue::make_emty()
+{
+	r_ind = f_ind = 0;
+	// r_ind = f_ind;
+	// r_ind = f_ind = size- 1;
+}
