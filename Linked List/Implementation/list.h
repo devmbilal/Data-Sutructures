@@ -55,3 +55,7 @@ Linklist::Linklist(const Linklist& l)
 	head = tail = t_ptr = NULL;
 	operator=(l);
 }
+Linklist::~Linklist()
+{
+	clear();
+}
