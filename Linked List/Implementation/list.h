@@ -59,3 +59,18 @@ Linklist::~Linklist()
 {
 	clear();
 }
+const Linklist& Linklist::operator=(const Linklist& l)
+{
+	if (head != NULL)
+	{
+		clear();
+	}
+	node* temp;
+	temp = l.head;
+	while (temp!=NULL)
+	{
+		insert(temp->info);
+		temp = temp->link;
+	}
+	return*this;
+}
