@@ -41,3 +41,17 @@ public:
 	bool is_last();
 	void reset();
 };
+
+
+// Implementation of Class Linklist
+
+Linklist::Linklist()
+{
+	head = tail = t_ptr = NULL;
+	n = 0;
+}
+Linklist::Linklist(const Linklist& l)
+{
+	head = tail = t_ptr = NULL;
+	operator=(l);
+}
