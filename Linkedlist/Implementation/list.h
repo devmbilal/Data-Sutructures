@@ -92,3 +92,16 @@ void Linklist<T>::insert(const T& val)
 	tail = ptr;
 	n++;
 }
+template<typename T>
+bool Linklist<T>::find(const T& val) const
+{
+	node<T>*p;
+	p = head;
+	while (p!=NULL)
+	{
+		if (p->info == val)
+			return true;
+		p = p->link;
+	}
+	return false;
+}
