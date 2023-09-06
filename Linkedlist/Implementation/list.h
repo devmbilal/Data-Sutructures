@@ -74,3 +74,21 @@ const Linklist& Linklist::operator=(const Linklist& l)
 	}
 	return*this;
 }
+template<typename T>
+void Linklist<T>::insert(const T& val)
+{
+	node<T>* ptr;
+	ptr = new node<T>;
+	ptr->info = val;
+	ptr->link = NULL;
+	if (head==NULL)
+	{
+		head = ptr;
+	}
+	else
+	{
+		tail->link = ptr;
+	}
+	tail = ptr;
+	n++;
+}
