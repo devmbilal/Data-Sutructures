@@ -105,3 +105,36 @@ bool Linklist<T>::find(const T& val) const
 	}
 	return false;
 }
+template<typename T>
+bool Linklist<T>::update(const T& old_val, const T& new_val)
+{
+	node<T> *p;
+	p = head;
+	while (p != NULL)
+	{
+		if (p->info == old_val)
+		{
+			p->info = new_val;
+			return true;
+		}
+		p = p->link;
+	}
+	return false;
+}
+template<typename T>
+int Linklist<T>::update_all(const T& old_val, const T& new_val)
+{
+	node<T> *p;
+	int update = 0;
+	p = head;
+	while (p != NULL)
+	{
+		if (p->info == old_val)
+		{
+			p->info = new_val;
+			update++;
+		}
+		p = p->link;
+	}
+	return update;
+}
