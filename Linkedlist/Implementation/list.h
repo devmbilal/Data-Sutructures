@@ -198,4 +198,19 @@ int Linklist<T>::size() const
 {
 	return n;
 }
+template<typename T>
+bool Linklist<T>::full()  const
+{
+	node<T>* p;
+	p = new node<T>;
+	if (p==NULL)
+	{
+		return true;
+	}
+	else
+	{
+		delete p;
+		return p;
+	}
+}
 
