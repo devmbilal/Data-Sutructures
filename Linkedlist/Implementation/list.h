@@ -227,3 +227,26 @@ void Linklist<T>::clear()
 	n = 0;
 }
 
+// Implementation of Traversal Functions
+
+template<typename T>
+void Linklist<T>::reset()
+{
+	t_ptr = head;
+}
+template<typename T>
+T Linklist<T>::get_next()
+{
+	if (empty())
+		throw("List is empty");
+	T val = t_ptr->info;
+	t_ptr = t_ptr->link;
+	return val;
+}
+template<typename T>
+bool Linklist<T>::is_last()
+{
+	return t_ptr == NULL;
+}
+
+
