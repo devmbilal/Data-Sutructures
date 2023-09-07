@@ -213,4 +213,17 @@ bool Linklist<T>::full()  const
 		return p;
 	}
 }
+template<typename T>
+void Linklist<T>::clear()
+{
+	node<T>* temp;
+	while (head != NULL)
+	{
+		temp = head;
+		head = head->link;
+		delete temp;
+	}
+	tail = NULL;
+	n = 0;
+}
 
