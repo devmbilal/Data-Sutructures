@@ -138,3 +138,44 @@ int Linklist<T>::update_all(const T& old_val, const T& new_val)
 	}
 	return update;
 }
+template<typename T>
+bool Linklist<T>::erase(const T& val)
+{
+	if (head == NULL)
+	{
+		throw("List is Empty");          // if list is empty
+	}
+	node<T> *temp, *pre;
+	temp = head;
+	if (head->info==val)     // Deleting First Node
+	{
+		head = head->link;
+		delete temp;         
+		if (head==NULL)
+		{ 
+			tail = NULL;    //if there is one node
+		}
+		n--;
+		return true;
+	}
+	pre = temp;            //Deleting Last or Middle Node
+	temp = temp->link;
+	while (temp!=NULL)               
+	{
+		if (val == temp->info)
+		{
+			pre->link = temp->link;
+			n--;
+			if (temp->link==NULL)
+			{
+				tail = pre;        // Last Node
+			}
+			delete temp;
+			return true;
+		}
+		pre = pre->link;
+		temp = temp->link;
+	}
+	return false;
+}
+
