@@ -178,4 +178,24 @@ bool Linklist<T>::erase(const T& val)
 	}
 	return false;
 }
+template<typename T>
+int Linklist<T>::erase_all(const T& val)
+{
+	int er = 0;
+	while (erase(val))
+	{
+		er++;
+	}
+	return er;
+}
+template<typename T>
+bool Linklist<T>::empty() const
+{
+	return head == NULL;
+}
+template<typename T>
+int Linklist<T>::size() const
+{
+	return n;
+}
 
